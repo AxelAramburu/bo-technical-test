@@ -9,6 +9,8 @@ import Test from './Pages/Test';
 import Home from './Pages/Home';
 import { colors } from './muiColors';
 import ListVideos from './Pages/ListVideos';
+import EditVideoView from './Pages/EditVideo/EditVideo.view';
+import EditVideo from './Pages/EditVideo';
 
 // import { ROLES } from './models/User/User.constants'; used to restrict menu access
 
@@ -47,12 +49,11 @@ const MENU_ENTRIES = [
 
     subItems: [
       {
-        name: 'Create',
         path: '/new',
         component: () => <NotAvailable />,
       },
       {
-        name: 'Edit',
+        name: 'editVideo',
         path: '/:newsTypeId/edit',
         component: () => <NotAvailable />,
       },
@@ -68,18 +69,18 @@ const MENU_ENTRIES = [
       buttonColor: colors.green2,
       icon: <OndemandVideo fontSize="inherit" />,
     },
-    // subItems: [
-    //   {
-    //     name: 'Create',
-    //     path: '/new',
-    //     component: () => <NotAvailable />,
-    //   },
-    //   {
-    //     name: 'Edit',
-    //     path: '/:newsTypeId/edit',
-    //     component: () => <NotAvailable />,
-    //   },
-    // ],
+    subItems: [
+      {
+        name: 'Create',
+        path: '/new',
+        component: () => <NotAvailable />,
+      },
+      {
+        name: 'editVideo',
+        path: '/edit/:videoId',
+        component: () => <EditVideo />,
+      },
+    ],
   },
   {
     name: 'test',

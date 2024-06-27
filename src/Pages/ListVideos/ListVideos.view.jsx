@@ -15,17 +15,26 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
 
-function ListVideosView() {
+function ListVideosView({ history }) {
   return (
     <div className={styles.list}>
-      <h1 className={styles.title}>Video List</h1>
+      <h1 className={styles.title}>Videos List</h1>
       <List className={styles.list_div}>
         {samplevideos.map((video) => (
           <div className={styles.list_div}>
             <ListItem
               sx={{ bgcolor: 'white', flexDirection: 'column', alignItems: 'flex-start' }}
               key={video.id}
-              secondaryAction={<PrimaryButton label="edit" />}>
+              secondaryAction={
+                <Link>
+                  <PrimaryButton
+                    label="edit"
+                    onClick={() => {
+                      history.push(`/videoslist/edit/${video.id}`);
+                    }}
+                  />
+                </Link>
+              }>
               <ListItemText primary={`${video.title}`} secondary={`${video.description}`} />
               <ListItemText primary={`${video.duration}`} />
             </ListItem>

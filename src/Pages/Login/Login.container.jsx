@@ -63,6 +63,17 @@ function LoginContainer() {
     }
   };
 
+  const validate = (values) => {
+    const errors = {};
+    if (!values?.username) {
+      errors.username = "Can't be empty";
+    }
+    if (!values?.password) {
+      errors.password = "Can't be empty";
+    }
+    return errors;
+  };
+
   useEffect(() => {
     if (!!user?.id && !!user?.accessToken) {
       setInitialLanguage(user?.meta?.language);
@@ -72,7 +83,7 @@ function LoginContainer() {
 
   return (
     <div>
-      <LoginView onSubmit={handleSubmit} errorMsg={errorMsg} />
+      <LoginView onSubmit={handleSubmit} errorMsg={errorMsg} validate={validate} />
     </div>
   );
 }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "REACT_APP_ENVIRONMENT=develop react-scripts start",
     "commit": "./node_modules/.bin/git-cz",
     "build": "react-scripts build",
     "test": "react-scripts test",
